@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller2">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Открыть" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Сохранить" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Справка">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#help" text="Помощь" />
+              <MenuItem mnemonicParsing="false" onAction="#helpBut" text="О программе" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Выход">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#exitBut" text="Завершить программу" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="442.0" prefWidth="668.0" style="-fx-background-color: #00BFFF;">
+         <children>
+            <TableView fx:id="table1" editable="true" layoutX="14.0" layoutY="40.0" onMouseClicked="#clickItem" prefHeight="200.0" prefWidth="331.0">
+              <columns>
+                <TableColumn fx:id="fam" editable="false" prefWidth="89.0" resizable="false" sortable="false" text="Фамилия" />
+                <TableColumn fx:id="number" editable="false" prefWidth="116.0" resizable="false" sortable="false" text="Номер телефона" />
+                  <TableColumn fx:id="SumAll" editable="false" prefWidth="134.0" resizable="false" sortable="false" text="Сумма сделок(руб)" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label layoutX="91.0" layoutY="14.0" text="Список риелторов" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table2" editable="true" layoutX="504.0" layoutY="40.0" prefHeight="200.0" prefWidth="236.0">
+               <columns>
+                  <TableColumn fx:id="clinetName" editable="false" prefWidth="111.0" resizable="false" sortable="false" text="Фамилия" />
+                  <TableColumn fx:id="clientPrice" editable="false" prefWidth="124.0" resizable="false" sortable="false" text="Цена сделки(руб)" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label layoutX="551.0" layoutY="14.0" text="Список клиентов" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="318.0" mnemonicParsing="false" onAction="#addTo" onMouseClicked="#addTable" text="Добавить (до)">
+               <tooltip>
+                  <Tooltip text="Добавляет нового риелтора(до выбранного риелтора)">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <Button layoutX="113.0" layoutY="319.0" mnemonicParsing="false" onAction="#addItem" onMouseClicked="#addTable" text="Добавить (после)">
+               <tooltip>
+                  <Tooltip text="Добавляет нового риелтора(после выбранного риелтора)">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <TextField fx:id="txtFam" layoutX="13.0" layoutY="284.0" onKeyPressed="#txtSetting2" promptText="Фамилия риелтора">
+               <tooltip>
+                  <Tooltip text="Пример: Petrov">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></TextField>
+            <TextField fx:id="txtNuM" layoutX="168.0" layoutY="284.0" onKeyPressed="#txtSetting" prefHeight="25.0" prefWidth="177.0" promptText="Номер телефона">
+               <tooltip>
+                  <Tooltip text="11 чисел, без +">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></TextField>
+            <Button layoutX="229.0" layoutY="320.0" mnemonicParsing="false" onAction="#remove" prefHeight="25.0" prefWidth="116.0" text="Удалить риелтора">
+               <tooltip>
+                  <Tooltip text="Удаляет выбранного риелтора">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <Button layoutX="504.0" layoutY="322.0" mnemonicParsing="false" onAction="#addClient" onMouseClicked="#addTable2" text="Добавить клиента">
+               <tooltip>
+                  <Tooltip text="Добавляет клиента в конец таблицы">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <Button layoutX="627.0" layoutY="322.0" mnemonicParsing="false" onAction="#removeClient" onMouseClicked="#addTable2" prefHeight="25.0" prefWidth="112.0" text="Удалить клиента">
+               <tooltip>
+                  <Tooltip text="Удаляет клиента с начала таблицы">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <TextField fx:id="txtClientFam" layoutX="504.0" layoutY="252.0" onKeyPressed="#txtSetting2" prefHeight="25.0" prefWidth="236.0" promptText="Фамилия клиента">
+               <tooltip>
+                  <Tooltip text="Пример: Petrov" />
+               </tooltip></TextField>
+            <TextField fx:id="txtClientPrice" layoutX="504.0" layoutY="284.0" onKeyPressed="#txtSetting" prefHeight="25.0" prefWidth="236.0" promptText="Цена сделки">
+               <tooltip>
+                  <Tooltip text="Пример: 1000" />
+               </tooltip></TextField>
+            <Button layoutX="14.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveFile" text="Сохранить в файл" />
+            <Button layoutX="143.0" layoutY="376.0" mnemonicParsing="false" onAction="#openFile" text="Загрузить из файла" />
+            <Button layoutX="624.0" layoutY="376.0" mnemonicParsing="false" onAction="#cleanTable" text="Очистить таблицы">
+               <tooltip>
+                  <Tooltip text="Удаляет все данные(очищает таблицы)">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+            <Label fx:id="sumAgentstvo" layoutX="14.0" layoutY="244.0" prefHeight="25.0" prefWidth="331.0" text="Сумма сделок агенства: 0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
